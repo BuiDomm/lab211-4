@@ -7,23 +7,7 @@ import model.Candidate;
 
 public class Library {
 
-    public int getInt(String promt, int m, int n) {
-        int a = -1;
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            System.out.print(promt + ": ");
-            try {
-                String s = sc.nextLine();
-                a = Integer.parseInt(s);
-                if (a >= m && a <= n) {
-                    break;
-                }
-            } catch (Exception e) {
-                System.out.println("Please enter a number between " + m + " and " + n);
-            }
-        }
-        return a;
-    }
+
 
     public int[] createArray(int size_Array) {
         int[] array = new int[size_Array];
@@ -99,7 +83,7 @@ public class Library {
         return id;
     }
 
-    public String checkUpdatePhone(String msg)  {
+    public String checkUpdatePhone(String msg) {
         while (true) {
             String input = getValue(msg);
             if (input == null || input.length() != 10) {
@@ -178,10 +162,11 @@ public class Library {
     public int getInt(String msg) {
         while (true) {
             String input = getValue(msg);
-            if (Integer.parseInt(input) != 0 || Integer.parseInt(input) != 1 || Integer.parseInt(input) != 2) {
-                continue;
+            if (Integer.parseInt(input) == 1 || Integer.parseInt(input) == 3 || Integer.parseInt(input) == 2) {
+                return Integer.parseInt(input);
             }
-            return Integer.parseInt(input);
+            continue;
+
         }
     }
 

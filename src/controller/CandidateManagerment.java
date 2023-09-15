@@ -97,7 +97,7 @@ public class CandidateManagerment extends Menu<String> {
                         switch(n) { 
                             case 1: { 
                                 String firstName = lib.getValue("Input firstName you want to search:");
-                                int typeCandi = lib.getInt("Input type candidate you want to search:");
+                                int typeCandi = lib.getInt("Input type candidate you want to search(1./Experience, 2./Fresher , 3./Intern:");
                                         
                                 for(Candidate cd : listCan) { 
                                     if (cd.getFirstName().equals(firstName) && cd.getCadidateType()==typeCandi ) {
@@ -108,7 +108,7 @@ public class CandidateManagerment extends Menu<String> {
                             }
                               case 2: { 
                                 String lastName = lib.getValue("Input lastName you want to search:");
-                                int typeCandi = lib.getInt("Input type candidate you want to search:");
+                                int typeCandi = lib.getInt("Input type candidate you want to search(1./Experience, 2./Fresher , 3./Intern:");
                                 for(Candidate cd : listCan) { 
                                     if (cd.getLastName().equals(lastName) && cd.getCadidateType()==typeCandi ) {
                                         System.out.println((cd.getFirstName()+cd.getLastName())+"|"+cd.getBirthDate()+"|"+cd.getAddress() +"|"+cd.getPhone()+"|"+cd.getEmail()+"|"+cd.getCadidateType());
