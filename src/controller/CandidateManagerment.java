@@ -25,16 +25,17 @@ public class CandidateManagerment extends Menu<String> {
     public CandidateManagerment() {
         super("Candidate Application", choices, "Exit");
     }
+    
     ArrayList<Candidate> listCan = new ArrayList<>();
 
-    public void display() {
+    public void displayA() {
         for (Candidate can : listCan) {
             System.out.println(can);
         }
     }
 
     @Override
-    public void execute(int n) throws Exception {
+    public void execute(int n) {
         Candidate cd;
         switch (n) {
             case 1: {
@@ -43,8 +44,8 @@ public class CandidateManagerment extends Menu<String> {
                 String lastName = lib.getValue("Input your Last Name:");
                 int birthDate = lib.checkBithday("Input birth date:");
                 String add = lib.getValue("Input your address:");
-                String phone = lib.checkUpdatePhone("Input your number phone:");
-                String email = lib.checkEmail("Input your email:");
+                String phone = lib.checkUpdatePhone("Input your number phone (10digits):");
+                String email = lib.checkEmail("Input your email (@gmail):");
                 int typeCandi = 1;
                 int yearOfEx = lib.checkYearEx("Input your year in Experience:");
                 String proSkill = lib.getValue("Input your proSkill:");
@@ -59,8 +60,8 @@ public class CandidateManagerment extends Menu<String> {
                 String lastName = lib.getValue("Input your Last Name:");
                 int birthDate = lib.checkBithday("Input birth date:");
                 String add = lib.getValue("Input your address:");
-                String phone = lib.checkUpdatePhone("Input your number phone:");
-                String email = lib.checkEmail("Input your email:");
+                String phone = lib.checkUpdatePhone("Input your number phone (10digits):");
+                String email = lib.checkEmail("Input your email (@gmail):");
                 int typeCandi = 2;
                 int graduateDate = Integer.parseInt(lib.getValue("Input your Graduate Date:"));
                 String rank = lib.checkGraduation();
@@ -75,8 +76,8 @@ public class CandidateManagerment extends Menu<String> {
                 String lastName = lib.getValue("Input your Last Name:");
                 int birthDate = lib.checkBithday("Input birth date:");
                 String add = lib.getValue("Input your address:");
-                String phone = lib.checkUpdatePhone("Input your number phone:");
-                String email = lib.checkEmail("Input your email:");
+                String phone = lib.checkUpdatePhone("Input your number phone (10digits):");
+                String email = lib.checkEmail("Input your email (@gmail):");
                 int typeCandi = 3;
                 String major = lib.getValue("Inut your major");
                 int semester = lib.getInt("Input your semester:");
@@ -86,13 +87,13 @@ public class CandidateManagerment extends Menu<String> {
                 break;
             }
             case 4: {
-                display();
+                displayA();
                 String title = "Searching app";
                 String[] choices = {"Search by FirstName and TypeCandidate ", "Search by LastName and TypeCandidate"};
 
                 Menu m = new Menu(title, choices, "Exit") {
                     @Override
-                    public void execute(int n) throws Exception {
+                    public void execute(int n)  {
                         switch(n) { 
                             case 1: { 
                                 String firstName = lib.getValue("Input firstName you want to search:");
@@ -112,6 +113,7 @@ public class CandidateManagerment extends Menu<String> {
                                     if (cd.getLastName().equals(lastName) && cd.getCadidateType()==typeCandi ) {
                                         System.out.println((cd.getFirstName()+cd.getLastName())+"|"+cd.getBirthDate()+"|"+cd.getAddress() +"|"+cd.getPhone()+"|"+cd.getEmail()+"|"+cd.getCadidateType());
                                     }
+                                    break;
                                 }
                                 break;
                             }

@@ -28,15 +28,15 @@ public abstract class Menu<T> {
         for (int i = 0; i < mChon.size(); i++) {
             System.out.println((i + 1) + "." + mChon.get(i));
         }
-        System.out.println("0." + exitMessage);
+        System.out.println((mChon.size() + 1) + "." + exitMessage);
         System.out.println("--------------------------------");
     }
 //----------------------------------------------
 
     public int getSelected() {
-        display();
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter selection: ");
+        display();
+        System.out.print("Enter selection..");
         int choice = mChon.size() + 1;
         try {
             choice = sc.nextInt();
@@ -47,17 +47,19 @@ public abstract class Menu<T> {
     }
 //--------------------------------------------------
 
-    public abstract void execute(int n) throws Exception;
+    public abstract void execute(int n);
 //--------------------------------------------------
 
-    public void run() throws Exception {
+    public void run() {
         while (true) {
             int n = getSelected();
             execute(n);
-            if ((n == 0)) {
+            if ((n == mChon.size() + 1) || n == 0) {
                 break;
             }
-            if (n>mChon.size()) System.out.printf("Please input a number from 0 to %d\n",mChon.size());
+            if (n > mChon.size()) {
+                System.out.printf("Please input a number from 0 to %d\n", mChon.size());
+            }
         }
     }
 }

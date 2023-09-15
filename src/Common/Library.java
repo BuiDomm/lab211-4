@@ -53,7 +53,7 @@ public class Library {
                 continue;
             }
 
-            String sub = id.substring(1);
+            String sub = id.substring(0);
             try {
                 int out = Integer.parseInt(sub);
                 if (out < 0) {
